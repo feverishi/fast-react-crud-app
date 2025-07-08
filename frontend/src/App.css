@@ -1,0 +1,185 @@
+/* frontend/src/App.css */
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+
+/* Replace the old .product-list and .product-card rules in frontend/src/App.css */
+
+.product-list {
+  display: grid;
+  /* Create responsive columns: 1 on small screens, 2 on medium, 3 on large */
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: white;
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column; /* Stack items vertically */
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Make sure the action buttons are always at the bottom */
+.product-card-actions {
+  margin-top: auto; /* This is the key flexbox trick */
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.product-card h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.product-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.product-card .price {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #007bff;
+}
+
+.product-card .inventory {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+
+
+
+/* Add to bottom of frontend/src/App.css */
+
+.product-form {
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f9f9f9;
+}
+
+.product-form h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.product-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.product-form button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.product-form button:hover {
+  background-color: #218838;
+}
+
+
+
+
+
+/* delete */
+
+.product-card .delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  float: right; /* Position it to the right */
+  transition: background-color 0.2s;
+}
+
+.product-card .delete-btn:hover {
+  background-color: #c82333;
+}
+
+
+
+/*the new buttons and the edit form*/
+
+.product-card-actions, .edit-form-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.product-card-actions button, .edit-form-actions button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.edit-btn, .save-btn {
+  background-color: #007bff;
+}
+
+.edit-btn:hover, .save-btn:hover {
+  background-color: #0069d9;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Edit form specific styles */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edit-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

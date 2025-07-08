@@ -1,138 +1,221 @@
 # Full-Stack E-commerce CRUD Application
 
-![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.104-009688?style=for-the-badge&logo=fastapi)
-![React](https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?style=for-the-badge&logo=postgresql)
-![Docker](https://img.shields.io/badge/Docker-24.0-2496ED?style=for-the-badge&logo=docker)
+> A complete, containerized e-commerce application demonstrating CRUD (Create, Read, Update, Delete) functionality for managing products. Built with FastAPI, PostgreSQL, and React.
 
-A complete, containerized e-commerce application demonstrating full-stack development principles. This project features a Python FastAPI backend serving a RESTful API and a React.js frontend for a dynamic user interface. The entire stack is orchestrated with Docker Compose for seamless setup and deployment.
+This project provides a robust foundation for a modern web application. The backend is a RESTful API built with Python and FastAPI, which communicates with a PostgreSQL database. The frontend is a dynamic single-page application built with React.js. The entire stack is orchestrated using Docker and Docker Compose for seamless development and deployment.
 
-### ✨ Live Demo / Screenshot
 
-*(It is highly recommended to add a GIF or screenshot of your application in action here. You can use a tool like Giphy Capture or LICEcap to record a short GIF.)*
 
- <!-- Replace with your actual screenshot URL -->
+## ✨ Features
 
----
+-   **Full CRUD Operations:** Create, read, update, and delete products through an intuitive user interface.
+-   **RESTful API:** A well-structured backend API for managing product data. Interactive API documentation is available via Swagger UI.
+-   **Containerized Environment:** Uses Docker and Docker Compose to set up the entire application stack (backend, frontend, database) with a single command.
+-   **Live Reloading:** Both the FastAPI backend and the React frontend are configured for live reloading, providing an efficient development experience.
+-   **Modular Codebase:** The code is organized into logical modules and components for better maintainability and scalability.
+-   **Database Persistence:** Product data is stored in a PostgreSQL database, with data persisting across container restarts using a Docker volume.
 
-### 📋 Table of Contents
+## 🛠️ Tech Stack
 
-- [Key Features](#-key-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation & Startup](#installation--startup)
-- [API Endpoints](#-api-endpoints)
-- [Architectural Decisions](#-architectural-decisions)
-- [License](#-license)
+| Component         | Technology                               |
+| ----------------- | ---------------------------------------- |
+| **Backend**       | Python 3.11, FastAPI                     |
+| **Frontend**      | React.js, Axios                          |
+| **Database**      | PostgreSQL 15                            |
+| **ORM / Driver**  | SQLAlchemy, psycopg2                     |
+| **Containerization** | Docker, Docker Compose                   |
+| **API Server**    | Uvicorn                                  |
 
----
-
-### 🚀 Key Features
-
--   **Full CRUD Functionality:** Create, Read, Update, and Delete products.
--   **RESTful API:** A well-structured API built with FastAPI for high performance.
--   **Containerized Environment:** Fully containerized with Docker and Docker Compose for easy setup, consistency, and portability across environments.
--   **Single-Page Application (SPA):** A reactive and modern frontend built with React.js.
--   **Modular Codebase:** The backend and frontend code is organized into logical, reusable components and modules.
--   **ORM Integration:** Uses SQLAlchemy for efficient and safe database interactions with PostgreSQL.
--   **Data Validation:** Leverages Pydantic for robust data validation on the backend.
-
----
-
-### 🛠️ Tech Stack
-
-| Area              | Technology                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| **Backend**       | Python 3.11, FastAPI, Uvicorn                                                                                 |
-| **Frontend**      | React.js, Axios                                                                                               |
-| **Database**      | PostgreSQL                                                                                                    |
-| **ORM / Driver**  | SQLAlchemy, psycopg2                                                                                          |
-| **Containerization** | Docker, Docker Compose                                                                                        |
-| **API Testing**   | FastAPI's built-in Swagger UI (`/docs`) & ReDoc (`/redoc`)                                                    |
-
----
-
-### 📁 Project Structure
-
-The project is organized into two main services: `backend` and `frontend`, each with its own Dockerfile and source code.
-
-```
-ecommerce-project/
-├── docker-compose.yml      # Orchestrates all services
-├── backend/
-│   ├── Dockerfile          # Defines the backend container
-│   ├── requirements.txt
-│   └── app/                # Main application package
-│       ├── __init__.py
-│       ├── main.py         # API endpoints
-│       ├── database.py     # Database connection & session
-│       ├── models.py       # SQLAlchemy ORM models
-│       └── schemas.py      # Pydantic data schemas
-└── frontend/
-    ├── Dockerfile          # Defines the frontend container
-    ├── package.json
-    └── src/                # React source code
-        ├── App.js          # Main application component
-        └── components/     # Reusable React components
-```
-
----
-
-### 🏁 Getting Started
+## 🚀 Getting Started
 
 Follow these instructions to get the project up and running on your local machine.
 
-#### Prerequisites
+### Prerequisites
 
--   [Docker](https://www.docker.com/products/docker-desktop/)
--   [Docker Compose](https://docs.docker.com/compose/install/) (usually included with Docker Desktop)
+You must have **Docker** and **Docker Compose** installed on your system.
 
-#### Installation & Startup
+-   [Install Docker Desktop](https://www.docker.com/products/docker-desktop/) (includes Docker Compose)
+
+### Installation & Running the Application
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/your-username/ecommerce-project.git
+    git clone <your-repository-url>
     cd ecommerce-project
     ```
 
 2.  **Build and run the services using Docker Compose:**
+    From the root `ecommerce-project` directory, run the following command. This will build the images for the frontend and backend, and start all the services.
     ```sh
     docker-compose up --build
     ```
-    This command will build the Docker images for the frontend and backend, start all the containers, and set up the database.
+    The `--build` flag ensures that the Docker images are rebuilt if you've made any changes to the Dockerfiles or source code.
 
-3.  **Access the application:**
-    -   **Frontend:** Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
-    -   **Backend API Docs:** Access the interactive API documentation at [http://localhost:8000/docs](http://localhost:8000/docs)
+3.  **Access the Application:**
+    Once the containers are running, you can access the different parts of the application:
+    -   **Frontend Application:** [http://localhost:3000](http://localhost:3000)
+    -   **Backend API Docs (Swagger):** [http://localhost:8000/docs](http://localhost:8000/docs)
+
+The first time you run the application, Docker will download the necessary base images, which might take a few minutes.
+
+## 🛑 Stopping the Application
+
+To stop and remove the running containers, press `Ctrl + C` in the terminal where `docker-compose` is running, and then execute:
+
+```sh
+docker-compose down
+```
+This command will stop the containers. If you want to remove the database volume as well (deleting all product data), you can run `docker-compose down -v`.
+
+## 📂 Project Structure
+
+```
+ecommerce-project/
+├── docker-compose.yml
+├── backend/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── app/
+│       ├── __init__.py
+│       ├── main.py
+│       ├── database.py
+│       ├── models.py
+│       └── schemas.py
+└── frontend/
+    ├── Dockerfile
+    ├── package.json
+    └── src/
+        ├── App.css
+        ├── App.js
+        ├── index.js
+        └── components/
+            ├── ProductForm.js
+            ├── ProductCard.js
+            └── EditProductForm.js
+```
+
+## 📝 API Endpoints
+
+The backend provides the following RESTful API endpoints for managing products.
+
+#### `POST /products/`
+
+-   **Description:** Creates a new product.
+-   **Request Body:**
+    ```json
+    {
+      "name": "string",
+      "description": "string",
+      "price": 0.0,
+      "inventory": 0
+    }
+    ```
+-   **Success Response (200 OK):**
+    ```json
+    {
+      "name": "string",
+      "description": "string",
+      "price": 0.0,
+      "inventory": 0,
+      "id": 1
+    }
+    ```
 
 ---
 
-### 🔌 API Endpoints
+#### `GET /products/`
 
-The backend exposes the following RESTful API endpoints for managing products.
-
-| Method | Endpoint                    | Description                                  |
-| :----- | :-------------------------- | :------------------------------------------- |
-| `POST` | `/products/`                | Creates a new product.                       |
-| `GET`  | `/products/`                | Retrieves a list of all products.            |
-| `GET`  | `/products/{product_id}`    | Retrieves a single product by its ID.        |
-| `PUT`  | `/products/{product_id}`    | Updates an existing product by its ID.       |
-| `DELETE` | `/products/{product_id}`  | Deletes a product by its ID.                 |
-
----
-
-### 🏛️ Architectural Decisions
-
--   **Why Docker?** Containerization ensures a consistent development, testing, and production environment. It simplifies dependency management and makes the application easy to run on any machine.
--   **Why FastAPI?** Chosen for its high performance, asynchronous support, automatic interactive documentation, and Pydantic-based data validation, which greatly accelerates development.
--   **Why React?** Its component-based architecture is ideal for building scalable and maintainable user interfaces. The virtual DOM ensures efficient updates and a smooth user experience.
--   **Why a modular structure?** Separating concerns (e.g., `database.py`, `models.py`, `schemas.py`, `main.py`) makes the backend code cleaner, easier to test, and more maintainable as the application grows.
+-   **Description:** Retrieves a list of all products.
+-   **Query Parameters:**
+    -   `skip` (int, optional, default: 0): Number of products to skip.
+    -   `limit` (int, optional, default: 100): Maximum number of products to return.
+-   **Success Response (200 OK):**
+    ```json
+    [
+      {
+        "name": "string",
+        "description": "string",
+        "price": 0.0,
+        "inventory": 0,
+        "id": 1
+      }
+    ]
+    ```
 
 ---
 
-### 📜 License
+#### `GET /products/{product_id}`
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+-   **Description:** Retrieves a single product by its ID.
+-   **Path Parameter:** `product_id` (int).
+-   **Success Response (200 OK):**
+    ```json
+    {
+      "name": "string",
+      "description": "string",
+      "price": 0.0,
+      "inventory": 0,
+      "id": 1
+    }
+    ```
+-   **Error Response (404 Not Found):**
+    ```json
+    {
+      "detail": "Product not found"
+    }
+    ```
+
+---
+
+#### `PUT /products/{product_id}`
+
+-   **Description:** Updates an existing product's details.
+-   **Path Parameter:** `product_id` (int).
+-   **Request Body:**
+    ```json
+    {
+      "name": "string",
+      "description": "string",
+      "price": 0.0,
+      "inventory": 0
+    }
+    ```
+-   **Success Response (200 OK):**
+    Returns the updated product object.
+-   **Error Response (404 Not Found):**
+    ```json
+    {
+      "detail": "Product not found"
+    }
+    ```
+
+---
+
+#### `DELETE /products/{product_id}`
+
+-   **Description:** Deletes a product by its ID.
+-   **Path Parameter:** `product_id` (int).
+-   **Success Response (200 OK):**
+    ```json
+    {
+      "detail": "Product deleted successfully"
+    }
+    ```
+-   **Error Response (404 Not Found):**
+    ```json
+    {
+      "detail": "Product not found"
+    }
+    ```
+
+## ⚙️ Environment Variables
+
+The application uses environment variables for configuration, primarily for the database connection. These are set within the `docker-compose.yml` file.
+
+| Service | Variable          | Value       | Description                       |
+| ------- | ----------------- | ----------- | --------------------------------- |
+| `db`    | `POSTGRES_USER`   | `myuser`    | The username for the PostgreSQL DB. |
+| `db`    | `POSTGRES_PASSWORD` | `mypassword`| The password for the PostgreSQL DB. |
+| `db`    | `POSTGRES_DB`     | `ecommercedb` | The name of the database to use.  |
+
+The backend service connects to the database using the service name `db` as the hostname: `postgresql://myuser:mypassword@db/ecommercedb`.
